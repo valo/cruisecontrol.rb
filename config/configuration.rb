@@ -10,6 +10,7 @@ class Configuration
   @serialize_builds = false
   @serialized_build_timeout = 3.hour
   @git_load_new_changesets_timeout = 5.minutes
+  @output_limit = 100.kilobytes
 
   class << self
     # published configuration options (mentioned in config/site_config.rb.example)
