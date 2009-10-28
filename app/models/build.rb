@@ -145,12 +145,12 @@ EOF
 
   def contents_for_display(file)
     return '' unless File.file?(file) && File.readable?(file)
-    file_size_kbytes = File.size(file) / 1024
-    if file_size_kbytes < 100
+    file_size = File.size(file)
+    if file_size < @project.output_limit
       File.read(file)
     else
-      contents = File.read(file, 100 * 1024)
-      response = "#{file} is #{file_size_kbytes} kbytes - too big to display in the dashboard, the output is truncated\n\n\n"
+      contents = File.read(file, @project.output_limit)
+      response = "#{file} is #{file_size / 1024} kbytes - too big to display in the dashboard, the output is truncated\n\n\n"
       response += contents
     end
   end
