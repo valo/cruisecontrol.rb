@@ -20,7 +20,7 @@ class Configuration
     attr_reader :dashboard_url
 
     # non-published configuration options (obscure stuff, mostly useful for http://cruisecontrolrb.thoughtworks.com)
-    attr_accessor :default_page
+    attr_accessor :default_page, :output_limit
     attr_writer :build_request_checking_interval, :sleep_after_build_loop_error
 
     def dashboard_url=(value)
